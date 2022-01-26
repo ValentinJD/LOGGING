@@ -1,8 +1,8 @@
 package ru.project;
 
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
 
-    Logger logger = LogManager.getLogger(HelloServlet.class);
+    Logger logger = LoggerFactory.getLogger(getClass());
 
     public HelloServlet() {
         super();
@@ -29,9 +29,9 @@ public class HelloServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         writer.println("<h1>Hello World Servlet on WildFly</h1>");
 
-        for (int i=0; i < 100; i++){
-            logger.warn("Hello world Log4j2 on WildFly");
-            logger.warn("Request URI {} - Session Id {}.", request.getRequestURI(), request.getSession().getId());
+        for (int i=0; i < 5; i++){
+            logger.error("************** exclusions logger library 555555 Hello world SLF4j on WildFly  ******************");
+//            logger.warn("55555555555555555 Request 55555555555555555555555555555555555");
         }
 
         writer.close();
