@@ -19,8 +19,7 @@ import java.io.PrintWriter;
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
 
-    @Inject
-    ReportingPeriodDaoImpl reportingPeriodDao;
+
 
     Logger logger = LoggerFactory.getLogger(getClass());
 

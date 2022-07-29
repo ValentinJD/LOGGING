@@ -1,5 +1,9 @@
 package ru.project;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -15,24 +19,21 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "REPORTING_PERIOD")
-public class ReportingPeriod {
+public class ReportingPeriod extends AbstractGenericEntity{
 
     public interface Columns {
         String START_DATE = "START_DATE";
         String END_DATE = "END_DATE";
     }
 
-    @Id
-    @Column(name = "id", nullable = false)
-    private Long id;
-
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     @Column(name = Columns.START_DATE)
     private LocalDate startDate;
 
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
     @Column(name = Columns.END_DATE)
     private LocalDate endDate;
 
-    public boolean isOldPeriod() {
-        return this.id != null;
-    }
 }
