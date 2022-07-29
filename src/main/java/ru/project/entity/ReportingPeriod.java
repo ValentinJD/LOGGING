@@ -1,4 +1,4 @@
-package ru.project;
+package ru.project.entity;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -8,7 +8,6 @@ import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDate;
 
@@ -19,7 +18,7 @@ import java.time.LocalDate;
 @RequiredArgsConstructor
 @Entity
 @Table(name = "REPORTING_PERIOD")
-public class ReportingPeriod extends AbstractGenericEntity{
+public class ReportingPeriod extends AbstractGenericEntity {
 
     public interface Columns {
         String START_DATE = "START_DATE";

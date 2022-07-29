@@ -1,4 +1,4 @@
-package ru.project;
+package ru.project.entity;
 
 import java.io.Serializable;
 

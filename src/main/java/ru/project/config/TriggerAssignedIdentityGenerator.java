@@ -1,4 +1,4 @@
-package ru.project;
+package ru.project.config;
 
 import org.hibernate.HibernateException;
 import org.hibernate.dialect.Dialect;

@@ -1,4 +1,6 @@
-package ru.project;
+package ru.project.config;
+
+import ru.project.controller.ReportingPeriodController;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

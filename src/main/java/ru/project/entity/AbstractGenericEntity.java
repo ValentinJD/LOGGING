@@ -1,4 +1,4 @@
-package ru.project;
+package ru.project.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -20,7 +20,7 @@ public abstract class AbstractGenericEntity implements GenericEntity {
     @Id
     @GeneratedValue(generator = "triggerAssigned")
     @Access(AccessType.PROPERTY)
-    @GenericGenerator(name = "triggerAssigned", strategy = "ru.project.TriggerAssignedIdentityGenerator")
+    @GenericGenerator(name = "triggerAssigned", strategy = "ru.project.config.TriggerAssignedIdentityGenerator")
     @Column(name = Columns.ID)
     protected Long id;
 

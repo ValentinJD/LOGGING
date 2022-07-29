@@ -5,7 +5,7 @@
 
     <persistence-unit name="item-manager-pu" transaction-type="JTA">
 
-        <class>ru.project.ReportingPeriod</class>
+        <class>ru.project.entity.ReportingPeriod</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=orcl)))" />

@@ -1,4 +1,4 @@
-package ru.project;
+package ru.project.entity;
 
 public interface BaseEntity<K> {
     K getId();

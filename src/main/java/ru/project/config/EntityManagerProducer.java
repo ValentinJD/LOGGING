@@ -1,7 +1,8 @@
-package ru.project.spike;
+package ru.project.config;
 
 import ru.project.HibernateUtil;
 
+import javax.ejb.Singleton;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Default;

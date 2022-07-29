@@ -1,11 +1,12 @@
-package ru.project;
+package ru.project.dao;
 
+
+import ru.project.HibernateUtil;
+import ru.project.entity.ReportingPeriod;
 
 import javax.inject.Singleton;
+//import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceUnit;
 import javax.transaction.Transactional;
 import java.util.List;
 
