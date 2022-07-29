@@ -14,7 +14,8 @@ import javax.persistence.PersistenceContext;
 @ApplicationScoped
 public class EntityManagerProducer {
 
-    @PersistenceContext(unitName = "item-manager-pu")
+    @PersistenceContext
+            (unitName = "item-manager-pu")
     private EntityManager entityManager;
 
     @Produces
