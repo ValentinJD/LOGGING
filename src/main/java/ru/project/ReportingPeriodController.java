@@ -4,7 +4,6 @@ import javax.ejb.*;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -17,11 +16,11 @@ import java.util.List;
 public class ReportingPeriodController {
 
     @Inject
-    ReportingPeriodDao reportingPeriodDao;
+    ReportingPeriodDaoImpl reportingPeriodDao;
 
     @GET
     public List<ReportingPeriod> getAll() {
-        List<ReportingPeriod> periods = reportingPeriodDao.getPeriods();
+        List<ReportingPeriod> periods = reportingPeriodDao.findAll();
         return periods;
     }
 

@@ -1,9 +1,8 @@
 package ru.project;
 
-import java.util.List;
+import org.apache.deltaspike.data.api.FullEntityRepository;
+import org.apache.deltaspike.data.api.Repository;
 
-public interface ReportingPeriodDao {
-    List<ReportingPeriod> getPeriods();
-
-    ReportingPeriod save(ReportingPeriod reportingPeriod);
+@Repository
+public interface ReportingPeriodDao extends FullEntityRepository<ReportingPeriod, Long> {
 }

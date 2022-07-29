@@ -11,19 +11,19 @@ import java.util.List;
 
 @Singleton
 @Transactional
-public class ReportingPeriodDaoImpl implements ReportingPeriodDao {
+public class ReportingPeriodDaoImpl  {
 
 //    @PersistenceUnit(name = "item-manager-pu")
     private EntityManager em = HibernateUtil.getEm();
 
-    public List<ReportingPeriod> getPeriods() {
+    public List<ReportingPeriod> findAll() {
         EntityManager em = HibernateUtil.getEm();
 //        EntityManager entityManager = em.createEntityManager();
         return em.createQuery("SELECT period FROM ReportingPeriod period")
                 .getResultList();
     }
 
-    @Override
+
     public ReportingPeriod save(ReportingPeriod entity) {
 //        EntityManager entityManager = em.createEntityManager();
         if (entity.getId() != null) {
