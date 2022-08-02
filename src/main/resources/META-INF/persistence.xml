@@ -3,16 +3,19 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
-    <persistence-unit name="item-manager-pu" transaction-type="JTA">
+    <persistence-unit name="MyUnit" transaction-type="JTA">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <jta-data-source>java:jboss/OracleDS</jta-data-source>
 
         <class>ru.project.entity.ReportingPeriod</class>
 
         <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=orcl)))" />
-            <property name="javax.persistence.jdbc.user" value="SRL_REN_03" />
-            <property name="javax.persistence.jdbc.password" value="SRL_REN_03" />
-            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
-            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle8iDialect" />
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=tcp)(HOST=localhost)(PORT=1521))(CONNECT_DATA=(SID=orcl)))"/>
+            <property name="javax.persistence.jdbc.user" value="SRL_REN_03"/>
+            <property name="javax.persistence.jdbc.password" value="SRL_REN_03"/>
+            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.Oracle8iDialect"/>
         </properties>
 
     </persistence-unit>

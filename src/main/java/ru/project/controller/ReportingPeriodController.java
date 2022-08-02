@@ -11,6 +11,7 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 import javax.inject.Singleton;
+import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import java.util.List;
@@ -20,12 +21,10 @@ import java.util.List;
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 @Singleton
-@ConcurrencyManagement(ConcurrencyManagementType.BEAN)
-@TransactionManagement(TransactionManagementType.BEAN)
 public class ReportingPeriodController {
 
     @Inject
-    ReportingPeriodDaoImpl reportingPeriodDao;
+    SpikeReportingPeriodDao reportingPeriodDao;
 
     @GET
     public List<ReportingPeriod> getAll() {
@@ -33,6 +32,7 @@ public class ReportingPeriodController {
         return periods;
     }
 
+    @Transactional
     @PUT
     public ReportingPeriod updateReportingPeriod(ReportingPeriod period) {
         return reportingPeriodDao.save(period);
