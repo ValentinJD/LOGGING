@@ -4,11 +4,6 @@ import ru.project.dao.ReportingPeriodDaoImpl;
 import ru.project.dao.SpikeReportingPeriodDao;
 import ru.project.entity.ReportingPeriod;
 
-//import javax.ejb.*;
-import javax.ejb.ConcurrencyManagement;
-import javax.ejb.ConcurrencyManagementType;
-import javax.ejb.TransactionManagement;
-import javax.ejb.TransactionManagementType;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.transaction.Transactional;
@@ -26,6 +21,9 @@ public class ReportingPeriodController {
     @Inject
     SpikeReportingPeriodDao reportingPeriodDao;
 
+    @Inject
+    ReportingPeriodDaoImpl reportingPeriodDaoN;
+
     @GET
     public List<ReportingPeriod> getAll() {
         List<ReportingPeriod> periods = reportingPeriodDao.findAll();
@@ -35,6 +33,7 @@ public class ReportingPeriodController {
     @Transactional
     @PUT
     public ReportingPeriod updateReportingPeriod(ReportingPeriod period) {
+        reportingPeriodDaoN.save(period);
         return reportingPeriodDao.save(period);
     }
 }
