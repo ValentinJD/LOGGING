@@ -4,6 +4,7 @@ import ru.project.dao.ReportingPeriodDaoImpl;
 import ru.project.dao.SpikeReportingPeriodDao;
 import ru.project.entity.ReportingPeriod;
 
+import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.transaction.Transactional;
@@ -15,7 +16,7 @@ import java.util.List;
 @Path("/reporting-period-list")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Singleton
+@Stateless
 public class ReportingPeriodController {
 
     @Inject
@@ -33,7 +34,7 @@ public class ReportingPeriodController {
     @Transactional
     @PUT
     public ReportingPeriod updateReportingPeriod(ReportingPeriod period) {
-        reportingPeriodDaoN.save(period);
+        reportingPeriodDao.save(period);
         return reportingPeriodDao.save(period);
     }
 }
