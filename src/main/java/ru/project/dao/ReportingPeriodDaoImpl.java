@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Singleton
-//@Transactional
+@Transactional
 public class ReportingPeriodDaoImpl {
 
     @Inject

@@ -16,7 +16,7 @@ public class EntityManagerProducer {
 
     @Produces
     @Default
-    @RequestScoped
+//    @RequestScoped
     public EntityManager create() {
         return this.entityManager;
     }

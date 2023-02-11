@@ -23,8 +23,8 @@ import java.util.List;
 @Stateless
 public class ReportingPeriodController {
 
-//    @Inject
-//    SpikeReportingPeriodDao reportingPeriodDao;
+    @Inject
+    SpikeReportingPeriodDao reportingPeriodDao;
 
     @Inject
     ReportingPeriodDaoImpl reportingPeriodDaoN;
@@ -35,16 +35,16 @@ public class ReportingPeriodController {
     @GET
     public List<ReportingPeriod> getAll() throws JMSException {
         producer.produceMessage();
-//        List<ReportingPeriod> periods = reportingPeriodDao.findAll();
-        return new ArrayList<>();
+        List<ReportingPeriod> periods = reportingPeriodDao.findAll();
+        return periods;
     }
 
-//    @Transactional
+    @Transactional
     @PUT
     public ReportingPeriod updateReportingPeriod(ReportingPeriod period) throws JMSException {
         producer.produceMessage();
-//        reportingPeriodDao.save(period);
-//        return reportingPeriodDao.save(period);
-        return new ReportingPeriod();
+        reportingPeriodDao.save(period);
+        return reportingPeriodDao.save(period);
+//        return new ReportingPeriod();
     }
 }
